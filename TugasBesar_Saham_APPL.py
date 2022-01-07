@@ -98,6 +98,11 @@ fig.add_tools(HoverTool(tooltips=tooltips, formatters={'@Date': 'datetime'}, ren
 
 
 show(fig)
-output_file('east-top-2-standings-race.html', 
-            title='Eastern Conference Top 2 Teams Wins Race')
+
+
+# In[11]:
+
+
+layout = row(plot)
+curdoc().add_root(layout)
 
