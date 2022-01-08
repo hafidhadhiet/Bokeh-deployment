@@ -56,12 +56,12 @@ a.line(x='Tahun', y='Jumlah_Imigran',
 
 a.legend.location = 'top_left'
 
-hov_appl = fig.circle(x='Tahun', y='Jumlah_Imigran', source=source ,size=15, alpha=0, hover_fill_color='blue', hover_alpha=0.5)
+hov_appl = a.circle(x='Tahun', y='Jumlah_Imigran', source=source ,size=15, alpha=0, hover_fill_color='blue', hover_alpha=0.5)
 
 tooltips = [
             ('Tahun', '@Tahun'),
             ('Jumlah Imigran', '@Jumlah_Imigran'),
            ]
-fig.add_tools(HoverTool(tooltips=tooltips, renderers=[hov_appl]))
+a.add_tools(HoverTool(tooltips=tooltips, renderers=[hov_appl]))
 
 curdoc().add_root(a)
