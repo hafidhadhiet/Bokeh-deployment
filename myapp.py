@@ -47,18 +47,18 @@ source = ColumnDataSource(data={
     'Jumlah Imigran'       : df_total['Jumlah Imigran'],
 })
 #Melakukan pembuatan figur dengan X-axis = Date dan Y-axis = Volume
-a = figure(title='Jumlah Imigran Asal Indonesia Yang Menetap di Kanada
+a = figure(title='Jumlah Imigran Asal Indonesia Yang Menetap di Kanada',
                   plot_height=400,
                   plot_width= 700,
                   x_axis_label='Tahun',
                   y_axis_label='Jumlah Imigran')
 
 #Menentukan warna, dan source dari garis figur
-fig.line(x='Tahun', y='Jumlah Imigran', 
+a.line(x='Tahun', y='Jumlah Imigran', 
         color='blue', legend_label='Jumlah Imigran',
         source=source)
 
-fig.legend.location = 'top_left'
+a.legend.location = 'top_left'
 
 # hov_appl = fig.circle(x='Tahun', y='Jumlah Imigran', source=source ,size=15, alpha=0, hover_fill_color='blue', hover_alpha=0.5)
 
@@ -68,4 +68,4 @@ fig.legend.location = 'top_left'
 #            ]
 # fig.add_tools(HoverTool(tooltips=tooltips, renderers=[hov_appl]))
 
-curdoc().add_root(fig)
+curdoc().add_root(a)
