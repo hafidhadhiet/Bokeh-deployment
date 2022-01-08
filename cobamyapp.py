@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[20]:
+# In[1]:
 
 
 import pandas as pd
@@ -65,7 +65,7 @@ print('data dimensions:', df_can.shape)
 df_can
 
 
-# In[8]:
+# In[7]:
 
 
 df_countries = df_can.loc[['Indonesia'],years].transpose()
@@ -77,7 +77,7 @@ df_total["Tahun"] = df_total["Tahun"].astype(int)
 df_total
 
 
-# In[29]:
+# In[8]:
 
 
 source = ColumnDataSource(data={
@@ -86,14 +86,14 @@ source = ColumnDataSource(data={
 })
 
 
-# In[30]:
+# In[9]:
 
 
 a = figure(title='Jumlah Imigran Asal Indonesia yang Masuk ke Kanada Pada Tahun 1970-2013', x_axis_label='Fertility (children per woman)', y_axis_label='Life Expectancy (years)',
            plot_height=400, plot_width=700)
 
 
-# In[31]:
+# In[10]:
 
 
 a.line(x='Tahun', y='Jumlah Imigran', 
@@ -103,10 +103,10 @@ a.line(x='Tahun', y='Jumlah Imigran',
 a.legend.location = 'top_left'
 
 
-# In[32]:
+# In[11]:
 
 
 # show(a)
-# curdoc().clear()
+
 curdoc().add_root(row(a))
 
