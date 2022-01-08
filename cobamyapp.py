@@ -12,6 +12,7 @@ from bokeh.models import CategoricalColorMapper
 from bokeh.palettes import Spectral6
 from bokeh.layouts import widgetbox, row, gridplot, column
 from bokeh.models import Slider, Select
+from bokeh.models.widgets import Tabs, Panel
 
 
 # In[2]:
@@ -107,6 +108,6 @@ a.legend.location = 'top_left'
 
 
 # show(a)
-
-curdoc().add_root(row(a))
+tabs = Tabs(tabs=[a])
+curdoc().add_root(tabs)
 
