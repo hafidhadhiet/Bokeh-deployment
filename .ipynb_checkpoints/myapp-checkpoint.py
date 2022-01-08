@@ -33,14 +33,14 @@ years = list(map(str, range(1980, 2014)))
 print('data dimensions:', df_can.shape)
 
 df_countries = df_can.loc[['Indonesia'],years].transpose()
-df_total = pd.DataFrame(df_countries.sum(axis=1))
-df_total.reset_index(inplace=True)
-df_total.columns = ["Tahun", "Jumlah Imigran"]
-df_total["Tahun"] = df_total["Tahun"].astype(int)
+df_ind = pd.DataFrame(df_countries.sum(axis=1))
+df_ind.reset_index(inplace=True)
+df_ind.columns = ["Tahun", "Jumlah_Imigran"]
+df_ind["Tahun"] = df_ind["Tahun"].astype(int)
 
 source = ColumnDataSource(data={
-    'Tahun'                : df_total['Tahun'],
-    'Jumlah Imigran'       : df_total['Jumlah Imigran'],
+    'Tahun'                : df_ind['Tahun'],
+    'Jumlah_Imigran'       : df_ind['Jumlah_Imigran'],
 })
 #Melakukan pembuatan figur dengan X-axis = Date dan Y-axis = Volume
 a = figure(title='Jumlah Imigran Asal Indonesia Yang Menetap di Kanada',
@@ -50,18 +50,18 @@ a = figure(title='Jumlah Imigran Asal Indonesia Yang Menetap di Kanada',
                   y_axis_label='Jumlah Imigran')
 
 #Menentukan warna, dan source dari garis figur
-a.line(x='Tahun', y='Jumlah Imigran', 
+a.line(x='Tahun', y='Jumlah_Imigran', 
         color='blue', legend_label='Jumlah Imigran',
         source=source)
 
 a.legend.location = 'top_left'
 
-# hov_appl = fig.circle(x='Tahun', y='Jumlah Imigran', source=source ,size=15, alpha=0, hover_fill_color='blue', hover_alpha=0.5)
+hov_appl = fig.circle(x='Tahun', y='Jumlah_Imigran', source=source ,size=15, alpha=0, hover_fill_color='blue', hover_alpha=0.5)
 
-# tooltips = [
-#             ('Tahun', '@Tahun{%F}'),
-#             ('Jumlah Imigran', '@JumlahImigran'),
-#            ]
-# fig.add_tools(HoverTool(tooltips=tooltips, renderers=[hov_appl]))
+tooltips = [
+            ('Tahun', '@Tahun'),
+            ('Jumlah Imigran', '@Jumlah_Imigran'),
+           ]
+fig.add_tools(HoverTool(tooltips=tooltips, renderers=[hov_appl]))
 
 curdoc().add_root(a)
