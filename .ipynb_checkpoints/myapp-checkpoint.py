@@ -11,11 +11,7 @@ from bokeh.models.widgets import Tabs, Panel
 from bokeh.plotting import figure
 
 #Read Data CSV
-df_can = pd.read_excel('https://s3-api.us-geo.objectstorage.softlayer.net/cf-courses-data/CognitiveClass/DV0101EN/labs/Data_Files/Canada.xlsx',
-                       sheet_name='Canada by Citizenship',
-                       skiprows=range(20),
-                       skipfooter=2
-                      )
+df_can = pd.read_csv('immigrant.csv')
 
 # clean up the dataset to remove unnecessary columns (eg. REG) 
 df_can.drop(['AREA', 'REG', 'DEV', 'Type', 'Coverage'], axis=1, inplace=True)
