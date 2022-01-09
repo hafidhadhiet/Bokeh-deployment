@@ -52,9 +52,6 @@ a = figure(title='Jumlah Imigran Asal Indonesia Yang Menetap di Kanada',
                   x_axis_label='Tahun',
                   y_axis_label='Jumlah Imigran')
 
-# Hide sidebar
-a.toolbar.autohide = True
-
 # Hilangkan logo bokeh dari sidebar
 a.toolbar.logo = None
 
